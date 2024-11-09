@@ -8,14 +8,14 @@ const ABOUT = () => {
         titleComponent={
           <>
             <h1 className="text-4xl font-semibold text-black dark:text-white">
-              <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+              <span className="text-4xl md:text-[6rem] font-bold leading-none">
                 ABOUT ME
               </span>
             </h1>
           </>
         }
       >
-        <BackgroundGradient className=" grid grid-cols-3  gap-5 rounded-[22px] p-4 sm:p-10 bg-white dark:bg-zinc-900">
+        <BackgroundGradient className=" grid grid-cols-3  gap-5 rounded-[22px] sm:p-10 bg-white dark:bg-zinc-900">
           <div className="flex col-span-1 gap-3 justify-center content-center">
             <div className="h-full w-full justify-center content-center ">
               <img
