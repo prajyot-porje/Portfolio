@@ -14,7 +14,7 @@ const Projects = () => {
             key={project.id}
             className=" sm:h-[41rem] lg:min-h-[32.5rem] h-[32rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
           >
-            <PinContainer title=" details" href={project.git}>
+            <PinContainer title="details" href={project.git}>
                     <div className=" relative flex items-center justify-center sm:w-[570px] w-[80vw] sm:h-[40vh] h-[30vh] overflow-hidden  mb-10
                     ">
                         <div className=" relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]">

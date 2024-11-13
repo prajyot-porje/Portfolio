@@ -25,6 +25,4 @@ export const projects = [
     link: "https://prajyot-porje.github.io/Spotify-Clone/",
     git: "https://github.com/prajyot-porje/Spotify-Clone",
   },
-  
 ];
-
