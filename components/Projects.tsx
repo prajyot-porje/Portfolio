@@ -40,8 +40,7 @@ const Projects = () => {
                             {project.iconLists.map((icon , index) =>(
                                 <div key={icon} className=" border border-white/[0.4] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
                                 style={{transform:`translateX(-${5*index*2}px)`}}
-                                >
-                                    <img
+                                >                                    <img
                                     src={icon}
                                     alt={icon}
                                     className="p-2"
