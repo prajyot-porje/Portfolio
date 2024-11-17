@@ -1,6 +1,21 @@
 import { projects } from "@/data";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
+import { link } from "fs";
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalTrigger,
+} from "./ui/animated-modal";
+import { motion } from "framer-motion";
+import { div } from "framer-motion/client";
+import { FaLocationArrow } from "react-icons/fa";
+import { GoArrowUpRight } from "react-icons/go";
+import { TbClick, TbListDetails } from "react-icons/tb";
+import { BiSolidUserDetail } from "react-icons/bi";
+import MyButton from "./ui/MyButton";
 
 const Projects = () => {
   return (
@@ -8,52 +23,117 @@ const Projects = () => {
       <h1 className=" heading">
         Some of My <span className=" text-purple">Recent Projects</span>
       </h1>
-      <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
+      <div className="flex flex-wrap items-center justify-center  gap-x-24 gap-y-8 mt-10">
         {projects.map((project) => (
           <div
             key={project.id}
             className=" sm:h-[41rem] lg:min-h-[32.5rem] h-[32rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
           >
             <CardContainer className="inter-var">
-              <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
-                <CardItem
-                  translateZ="50"
-                  className="text-xl font-bold text-neutral-600 dark:text-white"
-                >
-                  {project.title}
-                </CardItem>
-                <CardItem
-                  as="p"
-                  translateZ="60"
-                  className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-                >
-                  {project.des}
-                </CardItem>
-                <CardItem translateZ="100" className="w-full mt-4">
+              <CardBody className=" relative group/card  dark:hover:shadow-2xl sm:w-[620px] w-[80vw] h-auto rounded-xl p-6 border  ">
+                <CardItem translateZ="50" className="w-full mt-4 mb-4">
                   <img
-                    src="/lucifer.png"
+                    src={project.img}
                     height="1000"
                     width="1000"
                     className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
                     alt="thumbnail"
                   />
                 </CardItem>
-                <div className="flex justify-between items-center mt-20">
+                <CardItem
+                  translateZ="25"
+                  as="h1"
+                  className="font-bold  lg:text-2xl md:text-xl text-base line-clamp-1"
+                >
+                  {project.title}
+                </CardItem>
+                <CardItem
+                  as="p"
+                  translateZ="30"
+                  className="lg:text-xl lg:font-normal text-[#BEC1DD] font-light text-sm line-clamp-2"
+                >
+                  {project.des}
+                </CardItem>
+
+                <div className="flex justify-between items-center mt-6">
                   <CardItem
-                    translateZ={20}
+                    translateZ={10}
+                    as="a"
                     href={project.link}
                     target="__blank"
-                    className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+                    className="px-4 py-2 flex justify-center items-center rounded-xl "
                   >
-                    Try now →
+                    <p className="flex lg:text-xl md:text-xs text-sm text-purple">
+                      Check Live Site
+                    </p>
+                    <GoArrowUpRight
+                      className="ms-2"
+                      size={25}
+                      color="#CBACF9"
+                    />
                   </CardItem>
-                  <CardItem
-                    translateZ={20}
-                    as="button"
-                    className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-                  >
-                    Sign up
-                  </CardItem>
+                  <Modal>
+                    <ModalTrigger className="flex justify-center items-center">
+                      <MyButton
+                        title="Visit My Work"
+                        icon={<FaLocationArrow />}
+                        position="right"
+                        otherClasses="h-8 w-24"
+                      />
+                    </ModalTrigger>
+                    <ModalBody>
+                      <ModalContent>
+                        <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
+                          Book your trip to{" "}
+                          <span className="px-1 py-0.5 rounded-md bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700 border border-gray-200">
+                            Bali
+                          </span>{" "}
+                          now! ✈️
+                        </h4>
+                        <div className="flex justify-center items-center"></div>
+                        <div className="py-10 flex flex-wrap gap-x-4 gap-y-6 items-start justify-start max-w-sm mx-auto">
+                          <div className="flex  items-center justify-center">
+                            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                              5 connecting flights
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-center">
+                            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                              12 hotels
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-center">
+                            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                              69 visiting spots
+                            </span>
+                          </div>
+                          <div className="flex  items-center justify-center">
+                            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                              Good food everyday
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-center">
+                            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                              Open Mic
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-center">
+                            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                              Paragliding
+                            </span>
+                          </div>
+                        </div>
+                      </ModalContent>
+                      <ModalFooter className="gap-4">
+                        <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
+                          Cancel
+                        </button>
+                        <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
+                          Book Now
+                        </button>
+                      </ModalFooter>
+                    </ModalBody>
+                  </Modal>
                 </div>
               </CardBody>
             </CardContainer>
