@@ -1,7 +1,6 @@
 import { projects } from "@/data";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
-import { link } from "fs";
 import {
   Modal,
   ModalBody,
@@ -9,12 +8,8 @@ import {
   ModalFooter,
   ModalTrigger,
 } from "./ui/animated-modal";
-import { motion } from "framer-motion";
-import { div } from "framer-motion/client";
-import { FaLocationArrow } from "react-icons/fa";
+import { FaGithub, FaLocationArrow } from "react-icons/fa";
 import { GoArrowUpRight } from "react-icons/go";
-import { TbClick, TbListDetails } from "react-icons/tb";
-import { BiSolidUserDetail } from "react-icons/bi";
 import MyButton from "./ui/MyButton";
 
 const Projects = () => {
@@ -75,22 +70,23 @@ const Projects = () => {
                   <Modal>
                     <ModalTrigger className="flex justify-center items-center">
                       <MyButton
-                        title="Visit My Work"
+                        title="Details"
                         icon={<FaLocationArrow />}
                         position="right"
-                        otherClasses="h-8 w-24"
+                        otherClasses="h-10 w-38"
                       />
                     </ModalTrigger>
                     <ModalBody>
                       <ModalContent>
                         <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
-                          Book your trip to{" "}
-                          <span className="px-1 py-0.5 rounded-md bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700 border border-gray-200">
-                            Bali
-                          </span>{" "}
-                          now! ✈️
+                          {project.title}{" "}
                         </h4>
-                        <div className="flex justify-center items-center"></div>
+                        <div className="flex justify-center items-center">
+                          <img
+                          src={project.img}
+                          alt="project"
+                          />
+                        </div>
                         <div className="py-10 flex flex-wrap gap-x-4 gap-y-6 items-start justify-start max-w-sm mx-auto">
                           <div className="flex  items-center justify-center">
                             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
@@ -125,11 +121,12 @@ const Projects = () => {
                         </div>
                       </ModalContent>
                       <ModalFooter className="gap-4">
-                        <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
-                          Cancel
-                        </button>
-                        <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                          Book Now
+                        You can contribute to this project on My Github Profile
+                        <button className="bg-black flex justify-center gap-2 text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
+                        <FaGithub className="" size={20} />
+                        <div>
+                          Github
+                        </div>
                         </button>
                       </ModalFooter>
                     </ModalBody>

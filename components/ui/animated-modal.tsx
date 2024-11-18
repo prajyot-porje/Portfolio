@@ -50,15 +50,15 @@ export const ModalTrigger = ({
 }) => {
   const { setOpen } = useModal();
   return (
-    <form
+    <a
       className={cn(
-        "px-4 py-2 rounded-md text-black dark:text-white text-center relative overflow-hidden",
+        "h-12 rounded-md text-black dark:text-white text-center relative overflow-hidden",
         className
       )}
       onClick={() => setOpen(true)}
     >
       {children}
-    </form>
+    </a>
   );
 };
 
@@ -145,7 +145,7 @@ export const ModalContent = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("flex flex-col flex-1 p-8 md:p-10", className)}>
+    <div className={cn("flex overflow-auto overflow-y-scroll flex-col flex-1 p-8 md:p-10", className)}>
       {children}
     </div>
   );

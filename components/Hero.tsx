@@ -48,6 +48,7 @@ const Hero = () => {
               title="Visit My Work"
               icon={<FaLocationArrow />}
               position="right"
+              otherClasses="h-12 w-60 md:mt-10"
             />
           </a>
         </div>
